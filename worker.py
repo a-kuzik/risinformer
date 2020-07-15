@@ -315,7 +315,7 @@ class ToDo:
         try:
             for p, a in read_json("prefixes.json").items():
                 if p in self.argdata.prefixes():
-                    if str(self.argdata.path()[-1]) not in p:
+                    if str(self.argdata.path()[-1]) not in a:
                         ishijack.update(
                             {
                                 "ishijack": {
