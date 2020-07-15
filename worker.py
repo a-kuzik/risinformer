@@ -315,33 +315,32 @@ class ToDo:
         try:
             for p, a in read_json("prefixes.json").items():
                 if p in self.argdata.prefixes():
-                    for asn in a:
-                        if int(asn) != self.argdata.path()[-1]:
-                            ishijack.update(
-                                {
-                                    "ishijack": {
-                                        "time": self.argdata.timestamp(),
-                                        "asn": asn,
-                                        "hijacckedasn": self.argdata.path()[-1],
-                                        "host": self.argdata.host(),
-                                        "prefixes": p,
-                                    }
-                                }
-                            )
-                            text = "{} - It seems like BGP hijack was occurred for prefix {},\
-                                where the right origin is {} and wrong origin is {}".format(
-                                time.strftime(
-                                    "%Y-%m-%d %H:%M:%S",
+                    if str(self.argdata.path()[-1]) not in p:
+                        ishijack.update(
+                            {
+                                "ishijack": {
+                                "time": self.argdata.timestamp(),
+                                "asn": a,
+                                "hijacckedasn": self.argdata.path()[-1],
+                                "host": self.argdata.host(),
+                                "prefixes": p,
+                            	}
+                       		}
+                         )
+                        text = "{} - It seems like BGP hijack was occurred for prefix {},\
+                        	where the right origin is {} and wrong origin is {}".format(
+                            time.strftime(
+                            "%Y-%m-%d %H:%M:%S",
                                     time.localtime(self.argdata.timestamp()),
                                 ),
                                 p,
-                                asn,
+                                a,
                                 self.argdata.path()[-1],
                             )
-                            self.text = text
-                            self.ishijack = ishijack
-                            self.todo(ishijack)
-                            return ishijack, text
+                        self.text = text
+                        self.ishijack = ishijack
+                        self.todo(ishijack)
+                        return ishijack, text
 
         except Exception as err:
             pass
