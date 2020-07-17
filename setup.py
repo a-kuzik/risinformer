@@ -21,7 +21,7 @@ print(100 * "=")
 
 from crontab import CronTab
 
-regex_email = "^[a-z0-9]+[.|_|-]?[a-z0-9]+[@]\w+[-]\w+[.]\w{2,3}$"
+regex_email = "^[a-z0-9]+[.|_|-]?[a-z0-9]+[@]\w+[-]?\w+[.]\w{2,3}$"
 regex_ip = "^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$"
 d = {}
 irr = input("Please input the name of IRR (RIPE or RADB): ").lower()
