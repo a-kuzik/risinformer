@@ -8,7 +8,7 @@ from worker import *
 
 g = ReadConf(f1)
 conf = g.read_conf()
-url = "https://ris-live.ripe.net/v1/stream/?format=json&client=test101"
+url = "https://ris-live.ripe.net/v1/stream/?format=json&client={}".format(conf['main_asn'][0])
 
 
 def stream():
