@@ -5,6 +5,6 @@ This small project is not a new idea. Unlike the bgpalerter (https://github.com/
 For make your config.yaml file first you should run the ```setup.py``` script and input all asked data.
 After creating ```prefixes.json``` file, that includes all your objects (script also create the task in crontab for updating this file twice per day), and adding all necessary information to ```config.yaml``` for sending notifications to slack and telegram, you can run the main script ```risinformer.py```.
 
-More detail information is here - https://github.com/a-kuzik/risinformer/wiki/RISINFORMER
+More detailed information is here - https://github.com/a-kuzik/risinformer/wiki/RISINFORMER
 
 
